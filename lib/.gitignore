@@ -1,0 +1,6 @@
+# 'play deps' downloads dependencies into the /lib folder - we don't want those
+# in the Git repository
+
+*.jar
+!dropbox-java-sdk-1.2.1.jar
+!jets3t-0.8.1a.jar

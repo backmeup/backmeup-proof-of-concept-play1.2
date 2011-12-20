@@ -1,0 +1,9 @@
+/.settings
+/.classpath
+/.project
+/eclipse
+/tmp
+/secure
+**/secure
+/crud
+**/crud

@@ -1,0 +1,256 @@
+body, html {
+	font-family:Calibri,Arial,Sans;
+	margin:0px;
+	padding:0px;
+}
+
+h1 {
+	padding:5px;
+	color:#555;
+	font-size:26px;
+	font-weight:normal;
+	margin:0px 0px 15px 0px;
+	border-bottom:1px solid #ddd;
+	background-color:#efefef;
+}
+
+h1 a {
+	color:#555;
+}
+
+h1 a:visited {
+	color:#555;
+}
+
+#login-header a {
+	color:#333;
+}
+
+#login-header a:visited {
+	color:#333;
+}
+
+#login-header {
+	padding:0px;
+	margin:0px;
+	width:100%;
+	background-color:#ddd;
+	text-align:right;
+	font-family:Trebuchet,Arial,Sans;
+	font-size:12px;
+}
+
+#login-header p {
+	margin:0px;
+	padding:5px 10px;
+}
+
+#backmeup-logo {
+	border-width:0px;
+	position:absolute;
+	bottom:10px;
+	right:10px;
+}
+
+#login-header .username {
+	font-weight:bold;
+	font-style:italic;
+}
+
+#landing-banner {
+	font-family:Calibri,Arial,Sans;
+	font-size:50px;
+	width:100%;
+	background-color:#ddd;
+	padding:80px 0px;
+	text-align:center;
+	border-bottom:1px solid #ddd;
+	background:#efefef;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#efefef));
+	background: -moz-linear-gradient(top,  #f2f2f2,  #efefef);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#f2f2f2', endColorstr='#efefef');
+	
+}
+
+#main-menu {
+	font-family:Trebuchet,Arial,Sans;
+	font-size:18px;
+	margin:0px auto;
+}
+
+#main-menu li {
+	display:block;
+	list-style:none;
+	margin:20px auto;
+	padding:20px;
+	width:250px;
+	text-align:center;
+	border:1px solid #ddd;
+}
+
+#main-menu li a {
+	color:#222;
+	text-decoration:none;
+}
+
+#main-menu span.disabled {
+	color:#e2e2e2;
+}
+
+#main-menu li.enabled:hover {
+	border-color:orange;
+	cursor:pointer;
+	-moz-box-shadow:8px 8px 12px #efefef;
+	-webkit-box-shadow:8px 8px 12px #efefef;
+	box-shadow:8px 8px 12px #efefef; 
+}
+
+#content {
+	margin:0px;
+	padding:0px;
+}
+
+.datasources {
+	width:800px;
+	margin:0px auto 0px auto;
+}
+
+.datasource-box {
+	float:left;
+	margin-right:10px;
+	width:250px;
+	height:120px;
+	text-align:center;
+	border:1px solid #ddd;
+}
+
+.datasource-box:hover {
+	border-color:orange;
+	cursor:pointer;
+	-moz-box-shadow:8px 8px 12px #efefef;
+	-webkit-box-shadow:8px 8px 12px #efefef;
+	box-shadow:8px 8px 12px #efefef; 
+}
+
+.datasource-box div {
+	width:260px;
+	height:120px;
+	display:table-cell;
+	vertical-align:middle;
+}
+
+.datasource-box img {
+	margin: auto;
+}
+
+.profiles-list {
+	width:800px;
+	margin:40px auto 0px auto;
+}
+
+.profile {
+	color:#555;
+	width:800px;
+	padding:5px 0px 7px 0px;
+	margin-top:2px;
+	border-style:solid;
+	border-color:#ddd;
+	border-width:0px 0px 1px 0px;
+}
+
+.profile-btn {
+	float:right;
+	padding:3px 8px;
+	margin:0px 0px 0px 5px;
+	font-size:11px;
+	display:inline-block;
+
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	-khtml-border-radius:3px;
+	border-radius:3px;
+	
+	color: #d9eef7;
+	border: solid 1px #0076a3;
+	background: #0095cd;
+	background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+	background: -moz-linear-gradient(top,  #00adee,  #0078a5);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#00adee', endColorstr='#0078a5');
+}
+
+.profile-btn:hover {
+	background: #007ead;
+	background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+	background: -moz-linear-gradient(top,  #0095cc,  #00678e);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#0095cc', endColorstr='#00678e');
+}
+
+.profile-btn:active {
+	color: #80bed6;
+	background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00adee));
+	background: -moz-linear-gradient(top,  #0078a5,  #00adee);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#0078a5', endColorstr='#00adee');
+}
+
+.profile-btn-add {
+	float:none;
+	font-size:14px;
+	margin:10px 0px 0px 0px;
+}
+
+.profile-btn a {
+	color:#ddd;
+	text-decoration:none;
+}
+
+.resources {
+	width:800px;
+	margin:30px auto 0px auto;
+}
+
+#backup-status {
+	width:550px;
+	margin:30px auto 0px auto;
+}
+
+#backup-status td {
+	color:#555;
+	font-size:16px;
+}
+
+#backup-status td.key {
+	width:150px;
+	color:#222;
+}
+
+#backup-status td.value {
+	color:#555;
+}
+
+#download-link td {
+	padding:15px 5px 0px 0px;
+}
+
+#download-link td a {
+	color:#222;
+}
+
+.workflows {
+	border-collapse: collapse;
+	width:800px;
+	margin-bottom:15px;
+}
+
+.workflows thead tr {
+	font-weight:bold;
+}
+
+.workflows td {
+	padding:3px 4px;
+	color:#555;
+	border-style:solid;
+	border-color:#ddd;
+	border-width:0px 0px 1px 0px;
+}
+
+

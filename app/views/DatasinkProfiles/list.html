@@ -1,0 +1,26 @@
+#{extends 'main.html' /}
+#{set title:'My Backup Destinations' /}
+
+<h1><a href="/">Home</a> &gt; My Backup Destinations</h1>
+
+<div class="profiles-list">
+<p>You have ${profiles.size} 
+Backup Destination#{if profiles.size!=1}s#{/if}
+configured</p>
+#{list profiles, as:'profile'}
+  <div class="profile">
+    <span class="profile-name">${profile.name}</span>
+    <span class="profile-btn profile-btn-backup">
+      <a href="/workflows?sink=${profile.id}" title="View/Edit backup tasks for this Destination">BACKUP TASKS</a>
+    </span>
+    <span class="profile-btn profile-btn-remove">
+      <a href="/datasinks/${profile.id}/remove" title="Remove this Backup Destination">REMOVE</a>
+    </span>
+  </div>
+#{/list}
+
+  <span class="profile-btn profile-btn-add">
+    <a href="/datasinks/new" title="Add a new Backup Destination to your BackMeUp account">Add new Backup Destination</a>
+  </span>
+</div>
+

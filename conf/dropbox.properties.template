@@ -1,0 +1,3 @@
+# Configure your dropbox application keys here
+app.key = xxx
+app.secret = xxx

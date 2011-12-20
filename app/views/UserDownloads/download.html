@@ -1,0 +1,51 @@
+#{extends 'main.html' /}
+#{set title:'Creating Zipfile' /}
+
+<script type="text/javascript">
+  var poll = function() {
+    $.ajax({
+      url: 'http://localhost:9080/downloads/${id}/download/status',
+      success: function(data) {
+    	if (data == "completed") {
+          $('#status').html(data);
+          $('#status').css("color", "#007700");
+          $('#download-link').css("visibility", "visible");
+    	}
+      }
+    });
+  }
+  
+  setInterval(poll, 100);
+</script>
+
+<h1>Creating Zipfile</h1>
+
+<div id="backup-status">
+  <table>
+    <tr><td class="key">Datasource:</td><td class="value">${datasource.getProfile().name}</td></tr>
+    <tr><td class="key">Destination:</td><td class="value">ZIP Archive</td></tr>
+    <tr><td class="key">Backup Status:</td><td class="value">
+      <span id="status"><img style="margin-left:2px;" src="../../../public/images/ajax-wait.gif" /></span>
+    </td></tr>
+  </table>
+
+
+  <table id="download-link" style="visibility:hidden">
+    <tr>
+      <td>
+        <a href="http://localhost:9080/${outputFile}">
+          <img src="../../../public/images/archive-icon.png">
+        </a>
+      </td>
+      <td>
+         <a href="http://localhost:9080/${outputFile}">
+          Download ZIP archive file
+        </a>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<!-- p>
+  #{a @Application.index()}HOME#{/a}
+</p -->

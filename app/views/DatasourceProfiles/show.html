@@ -1,0 +1,12 @@
+#{extends 'main.html' /}
+#{set title:'Datasource' /}
+
+<h1>${datasource.getProfile().name}</h1>
+
+<div id="datasource-stats">
+  #{verbatim}${datasource.getStatistics()}#{/verbatim}
+</div>
+
+<p>
+  <a href="/datasources/${id}/download">Backup this account to ZIP archive</a>
+</p>

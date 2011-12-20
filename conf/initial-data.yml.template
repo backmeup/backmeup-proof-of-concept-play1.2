@@ -1,0 +1,4 @@
+User(bob):
+    email: guest@guest.com
+    password: guest
+    username: guest

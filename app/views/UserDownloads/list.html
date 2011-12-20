@@ -1,0 +1,26 @@
+#{extends 'main.html' /}
+#{set title:'My Downloads' /}
+
+<h1>My Downloads</h1>
+
+<div class="profiles-list">
+<p>You have ${downloads.size} 
+Download#{if downloads.size!=1}s#{/if} 
+configured</p>
+#{list downloads, as:'download'}
+  <div class="profile">
+    <span class="profile-name">${download.path}</span>
+    <span class="profile-btn profile-btn-backup">
+      <a href="/downloads/${download.id}/download" title="Create a zipfile from this download now">ZIP</a>
+    </span>
+    <span class="profile-btn">
+      <a href="/downloads/${download.id}/unpack" title="Unpack this download to the filesystem">UNPACK</a>
+    </span>
+    <span class="profile-btn profile-btn-remove">
+      <a href="/downloads/${download.id}/remove" title="Remove this download">REMOVE</a>
+    </span>
+  </div>
+#{/list}
+
+</div>
+

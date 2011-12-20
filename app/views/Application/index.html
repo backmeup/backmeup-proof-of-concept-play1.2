@@ -1,0 +1,16 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<div id="landing-banner">
+BackMeUp Prototype Landing Page 
+</div>
+
+#{if user}
+<div id="main-menu">
+  <ul>
+    <li class="enabled" ><a href="datasources">My Datasources</a></li>
+    <li class="enabled" ><a href="datasinks">My Backup Destinations</a></li>
+    <li class="enabled"><a href="workflows">My Backup Jobs</a></li>
+  </ul>
+</div>
+#{/if}

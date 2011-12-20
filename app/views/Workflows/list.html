@@ -1,0 +1,49 @@
+#{extends 'main.html' /}
+#{set title:'My Backup Jobs' /}
+
+<h1><a href="/">Home</a> &gt; My Backup Jobs</h1>
+
+<div class="profiles-list">
+<p>You have ${workflows.size} 
+Backup Job#{if workflows.size!=1}s#{/if}
+configured
+#{if sourceProfile!=null}for Datasource <strong>${sourceProfile.name}</strong>#{/if}
+#{elseif sinkProfile!=null}for Backup Destination <strong>${sinkProfile.name}</strong>#{/elseif}
+</p>
+
+  <table class="workflows">
+    <thead>
+      <tr>
+        <td>Name</td>
+        <td>Datasource</td>
+        <td>Backup Destination</td>
+        <td>Scheduled</td>
+        <td></td>
+      </tr>
+    </thead>
+    #{list workflows, as:'workflow'}
+    <tr>
+      <td class="profile-name">${workflow.name}</td>
+      <td>${workflow.sourceProfile.name}</td>
+      <td>
+        #{if workflow.sinkProfile==null} ZIP Archive #{/if}
+        #{else} ${workflow.sinkProfile.name} #{/else}
+      </td>
+      <td>Manual Trigger</td>
+      <td>
+        <span class="profile-btn">
+          <a href="/workflows/${workflow.id}/runnow" title="Run this Backup Job now">RUN NOW</a>
+        </span>
+        <span class="profile-btn">
+          <a href="/workflows/${workflow.id}/remove" title="Remove this Backup Job">REMOVE</a>
+        </span>
+      </td>
+    </tr>
+    #{/list}
+  </table>
+
+  <span class="profile-btn profile-btn-add">
+    <a href="/workflows/new" title="Add a new Backup Job">Add new Backup Job</a>
+  </span>
+</div>
+

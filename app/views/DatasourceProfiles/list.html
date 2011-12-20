@@ -1,0 +1,26 @@
+#{extends 'main.html' /}
+#{set title:'My Datasources' /}
+
+<h1><a href="/">Home</a> &gt; My Datasources</h1>
+
+<div class="profiles-list">
+<p>You have ${profiles.size} 
+Datasource#{if profiles.size!=1}s#{/if}
+configured</p>
+#{list profiles, as:'profile'}
+  <div class="profile">
+    <span class="profile-name">${profile.name}</span>
+    <span class="profile-btn profile-btn-backup">
+      <a href="/workflows?source=${profile.id}" title="View/Edit backup tasks for this datasource">BACKUP JOBS</a>
+    </span>
+    <span class="profile-btn profile-btn-remove">
+      <a href="/datasources/${profile.id}/remove" title="Remove this datasource">REMOVE</a>
+    </span>
+  </div>
+#{/list}
+
+  <span class="profile-btn profile-btn-add">
+    <a href="/datasources/new" title="Add a new Datasource to your BackMeUp account">Add new Datasource</a>
+  </span>
+</div>
+

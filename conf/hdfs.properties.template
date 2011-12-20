@@ -1,0 +1,4 @@
+# Configure your hdfs filesystem here
+coresite.path = xxx
+hdfssite.path = xxx
+mapredsite.path = xxx

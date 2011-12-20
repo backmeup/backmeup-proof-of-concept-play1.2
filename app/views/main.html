@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>#{get 'title' /}</title>
+    <meta charset="${_response_encoding}">
+    <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+    #{get 'moreStyles' /}
+    <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+    <script src="@{'/public/javascripts/jquery-1.5.2.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+    #{get 'moreScripts' /}
+  </head>
+  <body>
+    <div id="login-header">
+      <p>
+        #{if user}
+          You are logged in as <span class="username">${user.username}</span> 
+          <a href="/logout">(Logout)</a>
+        #{/if}
+        #{else}
+          You are not logged in. <a href="/login">Log In</a>
+        #{/else}
+      </p>
+    </div>
+      
+    <div id="content">
+      #{doLayout /}
+    </div>  
+    
+    <div id="backmeup-logo">
+      <a href="http://backmeup.project.x-net.at/"><img src="@@{'/public/images/backmeup-logo.jpg'}" /></a>
+    </div>
+  </body>
+</html>

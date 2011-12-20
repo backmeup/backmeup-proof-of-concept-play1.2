@@ -1,0 +1,34 @@
+#{extends 'main.html' /}
+#{set title:'Add New Backup Job' /}
+
+<h1><a href="/">Home</a> &gt; <a href="/workflows">My Backup Jobs</a> &gt;Add New</h1>
+
+<div>
+  <form action="@{Workflows.saveNew()}" method="POST">
+    <label>Name</label>
+    <input type="text" name="name"></input>
+    <br/>
+    
+    <label>Select Datasource</label>
+    <select name="source">
+    #{list sources, as:'source'}
+      <option value="${source.id}">${source.name}</option>
+    #{/list}
+    </select>
+    <br/>
+    
+    <label>Select Backup Destination</label>
+    <select name="sink">
+      <option value="-1">ZIP file</option>
+    </select>
+    <br/>
+    
+    <label>Schedule</label>
+    <select disabled="true">
+      <option>Manual Trigger</option>
+    </select>
+    <br/>
+    
+    <input type="submit" value="SAVE"></input>
+  </form>
+</div>

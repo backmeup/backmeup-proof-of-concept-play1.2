@@ -1,0 +1,40 @@
+#{extends 'main.html' /}
+#{set title:'Add New GoogleStorage Datasource' /}
+
+<h1>Add New GoogleStorage Datasource</h1>
+
+#{ifErrors}
+   <h3>Please note Required fields.</h3>
+   #{errors}
+       <li>${error.key}: ${error}</li>
+   #{/errors}
+   <p></p>
+#{/ifErrors}
+
+<form action="@{datasources.GoogleStorage.postAuthorize()}" method="GET">
+	<table>
+		<tr>
+		    <td>Profile name:</td>
+		    <td><input type="text" size=40 name="pName" /></td>
+		    <td><span class="error">#{error 'pName' /}</span></td>
+		</tr>
+		<tr>
+		    <td>Access Key:</td>
+		    <td><input type="password" size=80 name="gsAccessKey" /></td> 
+		    <td><span class="error">#{error 'gsAccessKey' /}</span></td>
+		</tr>
+		<tr>
+		    <td>Secret Key:</td
+		    ><td><input type="password" size=80 name="gsSecretKey" /> </td>
+		    <td><span class="error">#{error 'gsSecretKey' /}</span></td>
+		</tr>
+		<tr>
+		    <td>Filter:</td>
+		    <td><input type="text" size=40 name="gsTopBucket" /> </td>
+		    <td><span class="error">#{error 'gsTopBucket' /}</span></td>
+		</tr>
+		<tr>
+		    <td colspan=3><input type="submit" value="Save GoogleStorage Profile" /></td>
+		</tr>
+    </table>
+ </form> 

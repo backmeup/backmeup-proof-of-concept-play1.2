@@ -1,0 +1,55 @@
+#{extends 'main.html' /}
+#{set title:'Running Backup Job' /}
+
+<script type="text/javascript">
+  var poll = function() {
+    $.ajax({
+      url: '/jobstatus/${jobId}',
+      success: function(data) {
+    	if (data.status.lastIndexOf("completed") > -1) {
+          $('#status').html(data);
+          $('#status').css("color", "#007700");
+          $('#download-link').css("visibility", "visible");
+          $('#href-img').attr("href", "/" + data.location);
+          $('#href-link').attr("href", "/" + data.location);
+          clearInterval(pollInterval);
+    	}
+      }
+    });
+  }
+  var pollInterval = setInterval(poll, 500);
+  console.log('start');
+</script>
+
+<h1>Running Backup Job: <strong>${workflow.name}</strong></h1>
+
+<div id="backup-status">
+  <table>
+    <tr><td class="key">Datasource:</td><td class="value">${workflow.sourceProfile.name}</td></tr>
+    <tr>
+      <td class="key">Destination:</td>
+      <td class="value">
+        #{if (workflow.sinkProfile!=null)} ${workflow.sinkProfile.name} #{/if}
+        #{else} ZIP Archive #{/else}
+      </td>
+    </tr>
+    <tr><td class="key">Backup Status:</td><td class="value">
+      <span id="status"><img style="margin-left:2px;" src="@@{'public/images/ajax-wait.gif'}" /></span>
+    </td></tr>
+  </table>
+
+  <table id="download-link" style="visibility:hidden">
+    <tr>
+      <td>
+        <a id="href-img" href="#">
+          <img src="@@{'public/images/archive-icon.png'}">
+        </a>
+      </td>
+      <td>
+        <a id="href-link" href="#">
+          Download ZIP archive file
+        </a>
+     </td>
+    </tr>
+  </table>
+</div>

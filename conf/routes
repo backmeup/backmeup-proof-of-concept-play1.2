@@ -1,0 +1,55 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                                       Application.index
+
+# Datasources
+GET     /datasources                            DatasourceProfiles.list
+GET     /datasources/new                        DatasourceProfiles.createNew
+GET     /datasources/{id}                       DatasourceProfiles.show
+GET     /datasources/{id}/remove                DatasourceProfiles.delete
+
+GET     /datasources/new/dropbox                datasources.Dropbox.authorize
+GET     /datasources/new/dropbox/auth           datasources.Dropbox.postAuthorize
+
+GET     /datasources/new/s3                		datasources.S3.authorize
+GET     /datasources/new/s3/auth           		datasources.S3.postAuthorize
+
+GET     /datasources/new/googlestorage     		datasources.GoogleStorage.authorize
+GET     /datasources/new/googlestorage/auth 	datasources.GoogleStorage.postAuthorize
+
+# Datasinks
+GET     /datasinks                              DatasinkProfiles.list
+GET     /datasinks/new                          DatasinkProfiles.createNew
+
+# Workflows
+GET     /workflows                              Workflows.list
+GET     /workflows/new                          Workflows.defineNew
+GET     /workflows/{id}/remove                  Workflows.delete
+GET     /workflows/{id}/runnow                  Workflows.run
+
+GET     /jobstatus/{jobId}                      Workflows.queryStatus
+
+# Downloads
+GET     /downloads                              UserDownloads.list
+GET     /downloads/{id}/download                UserDownloads.download
+GET     /downloads/{id}/unpack                  UserDownloads.unpack
+GET     /downloads/{id}/remove                  UserDownloads.delete
+GET     /downloads/{id}/download/status         UserDownloads.queryDownloadStatus
+
+# Ignore favicon requests
+GET     /favicon.ico                            404
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+
+# Import CRUD routes
+*       /admin                                  module:crud
+
+# Import Secure routes
+*       /                                       module:secure
+
+# Catch all
+*       /{controller}/{action}                  {controller}.{action}

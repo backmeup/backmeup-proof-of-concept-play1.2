@@ -1,0 +1,40 @@
+#{extends 'main.html' /}
+#{set title:'Add New S3 Datasource' /}
+
+<h1>Add New S3 Datasource</h1>
+
+#{ifErrors}
+   <h3>Unable to create profile.</h3>
+   #{errors}
+       <li>${error.key}: ${error}</li>
+   #{/errors}
+   <p></p>
+#{/ifErrors}
+
+<form action="@{datasources.S3.postAuthorize()}" method="GET">
+	<table>
+		<tr>
+		    <td>Profile name:</td>
+		    <td><input type="text" size=40 name="pName" /></td>
+		    <td><span class="error">#{error 'pName' /}</span></td>
+		</tr>
+		<tr>
+		    <td>Access Key:</td>
+		    <td><input type="password" size=80 name="awsAccessKey" /></td> 
+		    <td><span class="error">#{error 'awsAccessKey' /}</span></td>
+		</tr>
+		<tr>
+		    <td>Secret Key:</td
+		    ><td><input type="password" size=80 name="awsSecretKey" /> </td>
+		    <td><span class="error">#{error 'awsSecretKey' /}</span></td>
+		</tr>
+		<tr>
+		    <td>Filter:</td>
+		    <td><input type="text" size=40 name="awsTopBucket" /> </td>
+		    <td><span class="error">#{error 'awsTopBucket' /}</span></td>
+		</tr>
+		<tr>
+		    <td colspan=3><input type="submit" value="Save S3 Profile" /></td>
+		</tr>
+    </table>
+ </form> 
