@@ -1,45 +1,47 @@
-# Requirements
+# Welcome to the BackMeUp Prototype
 
-This project is built with the [Play Framework] (http://www.playframework.org/). Instructions on how to set up 
-Play on your machine are [available here] (http://www.playframework.org/documentation/1.2.3/install).
+The aim of the BackMeUp Prototype is to provide a scalable personal data backup platform.
+The BackMeUp Prototype will allow users to create backups of their personal data that is scattered across
+the Web on social networks, Web mail services, cloud storage provides or media sharing sites. 
 
-# Getting Started
+BackMeUp will feature a modular architecture in which new services can be supported through connector plugins.
+In addition to backup, users will also be able to schedule more complex processing workflows, including e.g.
+encryption or data normalization/format conversion tasks.
 
-1. Type `play dependencies` to resolve the managed dependencies.
+## Prerequisites
 
-2. Type `play run` to start. The application will be at http://localhost:9000/
+The BackMeUp Prototype is built with the [Play Framework] (http://www.playframework.org/).
+Instructions on how to set up Play on your machine are [available here] 
+(http://www.playframework.org/documentation/1.2.3/install).
 
-3. You can log in to the application using a test account (username 'guest', password 'guest').
+## Getting Started
 
-`play eclipsify` will generate an Eclipse project.
+1. Change to the project folder to which you cloned the project repository
 
-# Configuring Connectors
+2. Set up your local configuration. Change to the folder `/conf` and...
+   - create a copy of the file `application.conf.template` named `application.conf`.
+     You can edit this file according to your local environment (e.g. set up a database connection instead
+     of the default in-memory database, use a [Hadoop Distributed File System] (http://hadoop.apache.org/hdfs/)
+     for backup storage, etc.) but to get started, the default config should be fine.
+   - create a copy of the file `inital-data.yml.template` named `inital-data.yml`. Again,
+     you can edit this file to set up the initial data the application is bootstrapped with, but
+     the defaults are sufficient to get you started.
 
-The prototype will (eventually) provide a number of connectors to different online storage and content sharing
-services. Currently, the project includes connectors to the following services:
+3. Type `play dependencies` (or `play deps`) to resolve and download the managed dependencies.
 
-* [Dropbox] (http://dropbox.com)
-* [Amazon S3] (http://aws.amazon.com/s3/)
-* [Google Cloud Storage] (code.google.com/apis/storage/)
+3. Type `play run` to start the prototype. The application will be at http://localhost:9080/ You
+   can log in to the application using a pre-set test account (username 'guest', password 'guest').
 
-## Configuring the Dropbox Connector
+4. Typing `play eclipsify` (or `play ec`) will generate an Eclipse project.
 
-Dropbox uses OAuth authentication. That means you need to create an app at the [Dropbox Developer Site]
-(http://www.dropbox.com/developers). After creating the app, you will receive your unique "application key"
-and "application secret" tokens. 
+## Configuring Connectors
 
-Create a copy of the file /conf/dropbox.properties.template named /conf/dropbox.properties and paste
-your application tokens in there.
+The prototype will provide a growing number of data connectors. Currently, the project includes
+connectors to [Dropbox] (http://dropbox.com), [Amazon S3] (http://aws.amazon.com/s3/) and 
+[Google Cloud Storage] (code.google.com/apis/storage/). Details on how to configure connectors will
+be available shortly in the [Wiki] (https://github.com/backmeup/backmeup-prototype/wiki).
 
-## Configuring the Amazon S3 Connector
-
-Todo...
-
-## Configuring the Google Cloud Storag Connector
-
-Todo...
-
-# Deployment
+## Deployment
 
 For server deployment, you can generate a standard Java Web archive (.war) file. To do this, 
 change into the application's parent folder and type
