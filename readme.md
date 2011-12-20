@@ -34,16 +34,14 @@ Instructions on how to set up Play on your machine are [available here]
 
 4. Typing `play eclipsify` (or `play ec`) will generate an Eclipse project.
 
-## Configuring Connectors
-
-The prototype will provide a growing number of data connectors. Currently, the project includes
-connectors to [Dropbox] (http://dropbox.com), [Amazon S3] (http://aws.amazon.com/s3/) and 
-[Google Cloud Storage] (code.google.com/apis/storage/). Details on how to configure connectors will
-be available shortly in the [Wiki] (https://github.com/backmeup/backmeup-prototype/wiki).
-
 ## Deployment
 
 For server deployment, you can generate a standard Java Web archive (.war) file. To do this, 
 change into the application's parent folder and type
 
 `play war backmeup-prototype -o backmeup-prototype --zip`
+
+## Further Information 
+
+More technical and developer information is begin made available in the
+[Wiki] (https://github.com/backmeup/backmeup-prototype/wiki).
