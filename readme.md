@@ -2,7 +2,7 @@
 
 The aim of the BackMeUp Prototype is to provide a scalable personal data backup platform.
 The BackMeUp Prototype will allow users to create backups of their personal data that is scattered across
-the Web on social networks, Web mail services, cloud storage provides or media sharing sites. 
+the Web (e.g. on social networks, Web mail services, cloud storage provides or media sharing sites). 
 
 BackMeUp will feature a modular architecture in which new services can be supported through connector plugins.
 In addition to backup, users will also be able to schedule more complex processing workflows, including e.g.
