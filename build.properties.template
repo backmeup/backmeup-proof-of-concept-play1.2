@@ -1,0 +1,2 @@
+# Configure the ant build of the Hadoop jar here
+java.home.dir = /usr/lib/jvm/java-6-sun

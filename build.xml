@@ -1,0 +1,47 @@
+<project default="compile">
+        
+        <property file="build.properties"/>
+        <property name="hadoop.lib.dir" value="${hadoop.home.dir}/lib" />
+        
+        <target name="clean">
+                <echo message="cleaning bin..." />
+                <delete dir="bin"/>
+                <delete dir="dist"/>
+        </target>
+        
+        <target name="compile" depends="clean">
+                <echo message="compiling src..." />
+                        <mkdir dir="bin"/>
+                        <javac srcdir="app/org/backmeup/index" destdir="bin" executable="${java.home.dir}/bin/javac" fork="true">
+                        <classpath>
+                                <fileset dir="lib">
+                                        <include name="commons-configuration-1.6.jar" />
+                                        <include name="jackson-core-asl-1.0.1.jar" />
+                                        <include name="jackson-mapper-asl-1.0.1.jar" />
+                                        <include name="lucene-core-3.5.0.jar" />
+                                        <include name="tika-app-1.0.jar" />
+                                        <include name="hadoop-core-0.20.205.0.jar" />
+                                </fileset>
+                        </classpath>
+             </javac>
+     </target>
+
+        
+     <target name="jar">
+         <delete dir="dist"/>
+         <mkdir dir="dist"/>
+         <mkdir dir="dist/incl/lib"/>
+         <copy todir="dist/incl/lib">
+             <fileset dir="lib">
+                  <include name="lucene-core-3.5.0.jar" />
+                  <include name="tika-app-1.0.jar" />
+	     </fileset>
+         </copy>
+         <jar destfile="dist/indexbatch.jar">
+             <fileset file="bin/**"/>
+             <fileset file="dist/incl/**"/>
+         </jar>
+         <delete dir="dist/incl"/>
+     </target>
+        
+</project>
