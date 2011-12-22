@@ -272,12 +272,8 @@ public class HdfsUtil {
 	}
 
 	public void deleteFile(String file) throws IOException {
-
 		Path path = new Path(file);
-		if (path==null) {
-			Logger.debug("Path " + file + " appears to be invalid");
-			return;
-		}
+
 		if (!hdfs.exists(path)) {
 			Logger.debug("File " + file + " does not exists");
 			return;

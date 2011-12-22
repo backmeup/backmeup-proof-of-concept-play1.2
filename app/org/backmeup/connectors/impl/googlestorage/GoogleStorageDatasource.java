@@ -242,51 +242,40 @@ public class GoogleStorageDatasource extends FilesystemLikeDatasource {
 		if (gsTopBucket==null) gsTopBucket="";
 		
 		GSCredentials localGsCredentials = new GSCredentials(gsAccessKey, gsSecretKey);
+		try {
+			localGsService = new GoogleStorageService(localGsCredentials);
 
-		if (localGsCredentials != null) {
+		} catch (ServiceException e) {
+			Logger.error("GS service exception - unable to connect with given credentials.");
+			Logger.error(e.getMessage());
+			return false;
+		}
+
+		if (gsTopBucket.equals("")) {
 			try {
-				localGsService = new GoogleStorageService(localGsCredentials);
-
+				GSBucket[] myBuckets = localGsService.listAllBuckets();
+				if (myBuckets.length<1) {
+					Logger.error("GoogleStorageDataSource: no buckets in GS account.");
+					return false;
+				}
 			} catch (ServiceException e) {
-				Logger.error("GS service exception - unable to connect with given credentials.");
-				Logger.error(e.getMessage());
+				Logger.error("GoogleStorageDataSource: Unable to list buckets in GS account.");
+				e.printStackTrace();
 				return false;
 			}
 		} else {
-			Logger.error("GoogleStorageDataSource: AWSCredentials are null.");
-			return false;
-		}
-		
-		if (localGsService != null) {
-			if (gsTopBucket.equals("")) {
-				try {
-					GSBucket[] myBuckets = localGsService.listAllBuckets();
-					if (myBuckets.length<1) {
-						Logger.error("GoogleStorageDataSource: no buckets in GS account.");
-						return false;
-					}
-				} catch (ServiceException e) {
-					Logger.error("GoogleStorageDataSource: Unable to list buckets in GS account.");
-					e.printStackTrace();
-					return false;
-				}
-			} else {
-				try {
-					GSObject[] gsObjects = localGsService.listObjects(gsTopBucket);
-					if (gsObjects.length < 1) {
-						Logger.error("GoogleStorageDataSource: Bucket is empty: "
-								+ gsTopBucket);
-						return false;
-					}
-				} catch (ServiceException e) {
-					Logger.error("GoogleStorageDataSource: unable to load objects from bucket: "
+			try {
+				GSObject[] gsObjects = localGsService.listObjects(gsTopBucket);
+				if (gsObjects.length < 1) {
+					Logger.error("GoogleStorageDataSource: Bucket is empty: "
 							+ gsTopBucket);
 					return false;
 				}
+			} catch (ServiceException e) {
+				Logger.error("GoogleStorageDataSource: unable to load objects from bucket: "
+						+ gsTopBucket);
+				return false;
 			}
-		} else {
-			Logger.error("GoogleStorageDataSource: GSService is null.");
-			return false;
 		}
 		
 		return true;

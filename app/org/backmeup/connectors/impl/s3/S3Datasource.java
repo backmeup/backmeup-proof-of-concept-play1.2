@@ -267,51 +267,40 @@ public class S3Datasource extends FilesystemLikeDatasource {
 		if (awsTopBucket==null) awsTopBucket="";
 		
 		AWSCredentials localAwsCredentials = new AWSCredentials(awsAccessKey, awsSecretKey);
+		try {
+			localS3Service = new RestS3Service(localAwsCredentials);
 
-		if (localAwsCredentials != null) {
-			try {
-				localS3Service = new RestS3Service(localAwsCredentials);
-
-			} catch (S3ServiceException e) {
-				Logger.error("S3 service exception - unable to connect with given credentials.");
-				Logger.error(e.getMessage());
-				return false;
-			}
-		} else {
-			Logger.error("S3DataSource: AWSCredentials are null.");
+		} catch (S3ServiceException e) {
+			Logger.error("S3 service exception - unable to connect with given credentials.");
+			Logger.error(e.getMessage());
 			return false;
 		}
 		
-		if (localS3Service != null) {
-			if (awsTopBucket.equals("")) {
-				try {
-					S3Bucket[] myBuckets = localS3Service.listAllBuckets();
-					if (myBuckets.length<1) {
-						Logger.error("S3DataSource: no buckets in S3 account.");
-						return false;
-					}
-				} catch (S3ServiceException e) {
-					Logger.error("S3DataSource: Unable to list buckets in S3 account.");
-					e.printStackTrace();
+		if (awsTopBucket.equals("")) {
+			try {
+				S3Bucket[] myBuckets = localS3Service.listAllBuckets();
+				if (myBuckets.length<1) {
+					Logger.error("S3DataSource: no buckets in S3 account.");
 					return false;
 				}
-			} else {
-				try {
-					localBucket = localS3Service.getBucket(awsTopBucket);
-					if (localBucket==null) {
-						Logger.error("S3DataSource: Bucket is null: "
-								+ awsTopBucket);
-						return false;
-					}
-				} catch (S3ServiceException e) {
-					Logger.error("S3DataSource: unable to load bucket: "
+			} catch (S3ServiceException e) {
+				Logger.error("S3DataSource: Unable to list buckets in S3 account.");
+				e.printStackTrace();
+				return false;
+			}
+		} else {
+			try {
+				localBucket = localS3Service.getBucket(awsTopBucket);
+				if (localBucket==null) {
+					Logger.error("S3DataSource: Bucket is null: "
 							+ awsTopBucket);
 					return false;
 				}
+			} catch (S3ServiceException e) {
+				Logger.error("S3DataSource: unable to load bucket: "
+						+ awsTopBucket);
+				return false;
 			}
-		} else {
-			Logger.error("S3DataSource: S3Service is null.");
-			return false;
 		}
 		
 		return true;
