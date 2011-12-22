@@ -1,4 +1,4 @@
-package org.backmeup;
+package org.backmeup.storage;
 
 import java.io.IOException;
 import java.net.URI;

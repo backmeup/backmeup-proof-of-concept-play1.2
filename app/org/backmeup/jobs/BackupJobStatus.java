@@ -1,6 +1,6 @@
-package org.backmeup;
+package org.backmeup.jobs;
 
-public enum JobStatus {
+public enum BackupJobStatus {
 	
 	SCHEDULED {
 	    public String toString() {

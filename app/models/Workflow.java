@@ -3,10 +3,10 @@ package models;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
-import org.backmeup.BackupJob;
-import org.backmeup.datasinks.Datasink;
-import org.backmeup.datasinks.zipfile.ZipFileDatasink;
-import org.backmeup.datasources.Datasource;
+import org.backmeup.connectors.Datasink;
+import org.backmeup.connectors.Datasource;
+import org.backmeup.connectors.impl.zipfile.ZipFileDatasink;
+import org.backmeup.jobs.BackupJob;
 
 import play.db.jpa.Model;
 

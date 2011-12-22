@@ -5,10 +5,10 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Date;
 import java.util.List;
 
-import org.backmeup.DataObject;
-import org.backmeup.datasources.Datasource;
-import org.backmeup.datasources.filesystem.FilesystemLikeDatasource;
-import org.backmeup.datasources.filesystem.dropbox.DropboxDatasource;
+import org.backmeup.connectors.Datasource;
+import org.backmeup.connectors.base.FilesystemLikeDatasource;
+import org.backmeup.connectors.impl.dropbox.DropboxDatasource;
+import org.backmeup.storage.DataObject;
 
 import com.dropbox.client2.DropboxAPI.Entry;
 

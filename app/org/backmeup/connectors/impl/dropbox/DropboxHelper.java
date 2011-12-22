@@ -1,4 +1,4 @@
-package org.backmeup.datasources.filesystem.dropbox;
+package org.backmeup.connectors.impl.dropbox;
 
 import java.io.IOException;
 import java.io.InputStream;

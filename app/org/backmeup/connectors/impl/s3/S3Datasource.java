@@ -1,4 +1,4 @@
-package org.backmeup.datasources.filesystem.s3;
+package org.backmeup.connectors.impl.s3;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,9 +15,9 @@ import java.util.NoSuchElementException;
 import models.DatasourceProfile;
 import models.User;
 
-import org.backmeup.DataObject;
-import org.backmeup.datasources.filesystem.FilesystemLikeDatasource;
-import org.backmeup.datasources.filesystem.FilesystemURI;
+import org.backmeup.connectors.base.FilesystemLikeDatasource;
+import org.backmeup.connectors.base.FilesystemURI;
+import org.backmeup.storage.DataObject;
 
 import org.jets3t.service.S3Service;
 import org.jets3t.service.S3ServiceException;

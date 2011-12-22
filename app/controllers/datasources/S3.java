@@ -3,8 +3,8 @@ package controllers.datasources;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.backmeup.DataObject;
-import org.backmeup.datasources.filesystem.s3.S3Datasource;
+import org.backmeup.connectors.impl.s3.S3Datasource;
+import org.backmeup.storage.DataObject;
 
 import models.DatasourceProfile;
 import models.ProfileProperty;

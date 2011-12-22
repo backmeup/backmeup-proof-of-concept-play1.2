@@ -5,10 +5,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 import org.apache.hadoop.fs.Path;
-import org.backmeup.DataObject;
-import org.backmeup.JobStatus;
-import org.backmeup.datasources.filesystem.FilesystemLikeDatasource;
-import org.backmeup.datasources.filesystem.FilesystemURI;
+import org.backmeup.connectors.base.FilesystemLikeDatasource;
+import org.backmeup.connectors.base.FilesystemURI;
+import org.backmeup.storage.DataObject;
 import org.backmeup.storage.hdfs.util.HdfsUtil;
 
 import models.BackupStatus;
@@ -57,7 +56,7 @@ public class HdfsFilesystemSourceJob extends Job {
 						
 			// Set the task to completed
 			BackupStatus t = BackupStatus.findById(taskId);
-			t.status = JobStatus.COMPLETED;
+			t.status = BackupJobStatus.COMPLETED;
 			t.save(); 
 
 			// TODO we need a policy to clean out old tasks from the DB

@@ -4,8 +4,7 @@ import java.util.Iterator;
 
 import models.DatasinkProfile;
 
-import org.backmeup.DataObject;
-import org.backmeup.datasinks.Datasink;
+import org.backmeup.connectors.Datasink;
 
 import play.Play;
 

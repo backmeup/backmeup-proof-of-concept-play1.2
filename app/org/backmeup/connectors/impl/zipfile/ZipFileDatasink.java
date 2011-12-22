@@ -1,4 +1,4 @@
-package org.backmeup.datasinks.zipfile;
+package org.backmeup.connectors.impl.zipfile;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -14,9 +14,9 @@ import models.DatasinkProfile;
 
 import org.apache.commons.compress.archivers.zip.ZipArchiveEntry;
 import org.apache.commons.compress.utils.IOUtils;
-import org.backmeup.DataObject;
-import org.backmeup.datasinks.Datasink;
-import org.backmeup.datasinks.DatasinkException;
+import org.backmeup.connectors.Datasink;
+import org.backmeup.connectors.DatasinkException;
+import org.backmeup.storage.DataObject;
 import org.backmeup.storage.StorageException;
 import org.backmeup.storage.StorageReader;
 

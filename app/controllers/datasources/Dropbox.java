@@ -7,8 +7,8 @@ import models.DatasourceProfile;
 import models.ProfileProperty;
 import models.User;
 
-import org.backmeup.datasources.filesystem.dropbox.DropboxDatasource;
-import org.backmeup.datasources.filesystem.dropbox.DropboxHelper;
+import org.backmeup.connectors.impl.dropbox.DropboxDatasource;
+import org.backmeup.connectors.impl.dropbox.DropboxHelper;
 
 import com.dropbox.client2.DropboxAPI;
 import com.dropbox.client2.DropboxAPI.Account;

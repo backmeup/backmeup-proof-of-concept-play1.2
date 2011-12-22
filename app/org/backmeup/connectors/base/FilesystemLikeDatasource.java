@@ -1,4 +1,4 @@
-package org.backmeup.datasources.filesystem;
+package org.backmeup.connectors.base;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -14,11 +14,11 @@ import models.BackupStatus;
 import models.DatasourceProfile;
 import models.User;
 
-import org.backmeup.DataObject;
-import org.backmeup.JobStatus;
-import org.backmeup.datasources.Datasource;
+import org.backmeup.connectors.Datasource;
 import org.backmeup.jobs.HdfsFilesystemSourceJob;
 import org.backmeup.jobs.HdfsSequenceFileJob;
+import org.backmeup.jobs.BackupJobStatus;
+import org.backmeup.storage.DataObject;
 import org.backmeup.storage.StorageException;
 import org.backmeup.storage.StorageWriter;
 

@@ -5,7 +5,6 @@ import java.io.InputStream;
 import java.util.Iterator;
 import java.util.List;
 
-import org.backmeup.DataObject;
 
 import play.Play;
 

@@ -1,4 +1,4 @@
-package org.backmeup.datasinks;
+package org.backmeup.connectors;
 
 public class DatasinkException extends Exception {
 	

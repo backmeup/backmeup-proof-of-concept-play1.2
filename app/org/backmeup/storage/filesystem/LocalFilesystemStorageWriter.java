@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.backmeup.DataObject;
+import org.backmeup.storage.DataObject;
 import org.backmeup.storage.StorageException;
 import org.backmeup.storage.StorageWriter;
 

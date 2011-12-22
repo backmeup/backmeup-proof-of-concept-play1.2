@@ -7,10 +7,10 @@ import java.util.List;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
-import org.backmeup.DataObject;
-import org.backmeup.datasources.Datasource;
-import org.backmeup.datasources.filesystem.FilesystemLikeDatasource;
-import org.backmeup.datasources.filesystem.dropbox.DropboxDatasource;
+import org.backmeup.connectors.Datasource;
+import org.backmeup.connectors.base.FilesystemLikeDatasource;
+import org.backmeup.connectors.impl.dropbox.DropboxDatasource;
+import org.backmeup.storage.DataObject;
 import org.backmeup.storage.hdfs.util.HdfsManager;
 import org.backmeup.storage.hdfs.util.SequenceFileUtil;
 

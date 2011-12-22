@@ -1,4 +1,4 @@
-package org.backmeup.datasources;
+package org.backmeup.connectors;
 
 public class DatasourceException extends Exception {
 	

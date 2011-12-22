@@ -9,7 +9,7 @@ import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.BytesWritable;
 import org.apache.hadoop.io.SequenceFile;
 import org.apache.hadoop.io.Text;
-import org.backmeup.DataObject;
+import org.backmeup.storage.DataObject;
 import org.backmeup.storage.StorageException;
 import org.backmeup.storage.StorageReader;
 import org.backmeup.storage.hdfs.util.HdfsManager;

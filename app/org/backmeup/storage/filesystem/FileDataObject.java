@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 import org.apache.commons.io.IOUtils;
-import org.backmeup.DataObject;
+import org.backmeup.storage.DataObject;
 
 public class FileDataObject implements DataObject {
 	

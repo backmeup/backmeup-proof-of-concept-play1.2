@@ -1,9 +1,9 @@
-package org.backmeup.datasources;
+package org.backmeup.connectors;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
-import org.backmeup.DataObject;
+import org.backmeup.storage.DataObject;
 import org.backmeup.storage.StorageException;
 import org.backmeup.storage.StorageWriter;
 

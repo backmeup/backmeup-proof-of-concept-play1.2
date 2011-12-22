@@ -2,9 +2,9 @@ package controllers;
 
 import java.util.List;
 
-import org.backmeup.datasinks.Datasink;
-import org.backmeup.datasources.Datasource;
-import org.backmeup.datasources.filesystem.FilesystemLikeDatasource;
+import org.backmeup.connectors.Datasink;
+import org.backmeup.connectors.Datasource;
+import org.backmeup.connectors.base.FilesystemLikeDatasource;
 
 import models.BackupStatus;
 import models.DatasinkProfile;

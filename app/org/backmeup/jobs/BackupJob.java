@@ -1,12 +1,12 @@
-package org.backmeup;
+package org.backmeup.jobs;
 
 import java.io.File;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
-import org.backmeup.datasinks.Datasink;
-import org.backmeup.datasinks.zipfile.ZipFileDatasink;
-import org.backmeup.datasources.Datasource;
+import org.backmeup.connectors.Datasink;
+import org.backmeup.connectors.Datasource;
+import org.backmeup.connectors.impl.zipfile.ZipFileDatasink;
 import org.backmeup.storage.StorageException;
 import org.backmeup.storage.StorageReader;
 import org.backmeup.storage.StorageWriter;
@@ -34,7 +34,7 @@ public class BackupJob extends Job {
 	public BackupJob(Workflow workflow) {
 		this.workflow = workflow;
 		
-		BackupStatus status = new BackupStatus(workflow, JobStatus.SCHEDULED);
+		BackupStatus status = new BackupStatus(workflow, BackupJobStatus.SCHEDULED);
 		status.save();
 		jobID = status.getId();
 	}
@@ -75,7 +75,7 @@ public class BackupJob extends Job {
 			Logger.info("Job " + jobID + ": upload to sink complete");
 			
 			BackupStatus t = BackupStatus.findById(jobID);
-			t.status = JobStatus.COMPLETED;
+			t.status = BackupJobStatus.COMPLETED;
 			t.location = location;
 			t.save(); 
 		} catch (Exception e) {
@@ -83,7 +83,7 @@ public class BackupJob extends Job {
 			e.printStackTrace();
 			
 			BackupStatus status = BackupStatus.findById(jobID);
-			status.status = JobStatus.FAILED;
+			status.status = BackupJobStatus.FAILED;
 			status.message = e.getMessage();
 			status.save();
 		}

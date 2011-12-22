@@ -1,4 +1,4 @@
-package org.backmeup.datasources.filesystem;
+package org.backmeup.connectors.base;
 
 import java.net.URI;
 

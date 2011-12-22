@@ -1,10 +1,9 @@
-package org.backmeup.datasinks;
+package org.backmeup.connectors;
 
 import java.net.URI;
 import java.util.List;
 
-import org.backmeup.DataObject;
-import org.backmeup.datasources.Datasource;
+import org.backmeup.storage.DataObject;
 import org.backmeup.storage.StorageException;
 import org.backmeup.storage.StorageReader;
 

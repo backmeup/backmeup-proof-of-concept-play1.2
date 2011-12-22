@@ -10,10 +10,9 @@ import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.BytesWritable;
 import org.apache.hadoop.io.SequenceFile;
 import org.apache.hadoop.io.Text;
-import org.backmeup.DataObject;
-import org.backmeup.JobStatus;
-import org.backmeup.datasources.filesystem.FilesystemLikeDatasource;
-import org.backmeup.datasources.filesystem.FilesystemURI;
+import org.backmeup.connectors.base.FilesystemLikeDatasource;
+import org.backmeup.connectors.base.FilesystemURI;
+import org.backmeup.storage.DataObject;
 import org.backmeup.storage.hdfs.util.HdfsManager;
 
 import models.BackupStatus;
@@ -59,7 +58,7 @@ public class HdfsSequenceFileJob extends Job {
 
 			// Set the task to completed
 			BackupStatus t = BackupStatus.findById(taskId);
-			t.status = JobStatus.COMPLETED;
+			t.status = BackupJobStatus.COMPLETED;
 			t.save();
 
 			// TODO we need a policy to clean out old tasks from the DB

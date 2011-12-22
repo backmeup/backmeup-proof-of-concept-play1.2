@@ -3,8 +3,8 @@ package controllers.datasources;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.backmeup.DataObject;
-import org.backmeup.datasources.filesystem.googlestorage.GoogleStorageDatasource;
+import org.backmeup.connectors.impl.googlestorage.GoogleStorageDatasource;
+import org.backmeup.storage.DataObject;
 
 import models.DatasourceProfile;
 import models.ProfileProperty;

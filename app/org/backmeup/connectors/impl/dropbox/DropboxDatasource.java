@@ -1,4 +1,4 @@
-package org.backmeup.datasources.filesystem.dropbox;
+package org.backmeup.connectors.impl.dropbox;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -18,9 +18,9 @@ import java.util.concurrent.FutureTask;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
-import org.backmeup.DataObject;
-import org.backmeup.datasources.filesystem.FilesystemLikeDatasource;
-import org.backmeup.datasources.filesystem.FilesystemURI;
+import org.backmeup.connectors.base.FilesystemLikeDatasource;
+import org.backmeup.connectors.base.FilesystemURI;
+import org.backmeup.storage.DataObject;
 
 import play.jobs.Job;
 

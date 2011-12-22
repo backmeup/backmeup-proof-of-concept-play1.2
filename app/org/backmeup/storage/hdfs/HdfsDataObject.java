@@ -3,7 +3,7 @@ package org.backmeup.storage.hdfs;
 import java.io.File;
 import java.io.IOException;
 
-import org.backmeup.DataObject;
+import org.backmeup.storage.DataObject;
 
 public class HdfsDataObject implements DataObject {
 	
