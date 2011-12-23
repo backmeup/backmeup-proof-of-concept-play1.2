@@ -7,6 +7,7 @@ import org.apache.commons.io.FileUtils;
 import org.backmeup.connectors.Datasink;
 import org.backmeup.connectors.Datasource;
 import org.backmeup.connectors.impl.zipfile.ZipFileDatasink;
+import org.backmeup.index.StorageIndexer;
 import org.backmeup.storage.StorageException;
 import org.backmeup.storage.StorageReader;
 import org.backmeup.storage.StorageWriter;
@@ -64,11 +65,18 @@ public class BackupJob extends Job {
 			source.downloadAll(storageWriter);
 			storageWriter.close();
 			Logger.info("Job " + jobID + ": download from source complete");
+			
+			// For testing only: run indexer
+			StorageReader storageReader = StorageReader.configuredRuntimeInstance();
+			storageReader.open(storagePath);
+			StorageIndexer indexer = new StorageIndexer(storageReader);
+			indexer.run();
+			storageReader.close();
 	
 			// TODO pipe data through processing actions, if any
 			
 			// 2. Move the data from storage backend to sink
-			StorageReader storageReader = StorageReader.configuredRuntimeInstance();
+			// StorageReader storageReader = StorageReader.configuredRuntimeInstance();
 			storageReader.open(storagePath);
 			String location = sink.upload(storageReader);
 			storageReader.close();

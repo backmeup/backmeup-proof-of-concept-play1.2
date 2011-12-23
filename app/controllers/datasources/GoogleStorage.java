@@ -50,7 +50,7 @@ public class GoogleStorage extends Controller {
 			
 			// Store auth session info in DB
 			DatasourceProfile profile = 
-				user.addDatasourceProfile("GoogleStorage", "org.backmeup.datasources.filesystem.googlestorage.GoogleStorageDatasource");
+				user.addDatasourceProfile("GoogleStorage", "org.backmeup.connectors.impl.googlestorage.GoogleStorageDatasource");
 			profile.setProperty(GoogleStorageDatasource.GS_ACCESS_KEY_PROPERTY_NAME, gsAccessKey);
 			profile.setProperty(GoogleStorageDatasource.GS_SECRET_KEY_PROPERTY_NAME, gsSecretKey);
 			profile.setProperty(GoogleStorageDatasource.GS_BUCKET_PROPERTY_NAME, gsTopBucket);

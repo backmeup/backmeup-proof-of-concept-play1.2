@@ -1,4 +1,4 @@
-package org.backmeup.jobs;
+package org.backmeup.jobs.index;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -35,7 +35,6 @@ import org.apache.tika.metadata.Metadata;
 import org.apache.tika.parser.ParseContext;
 import org.apache.tika.parser.Parser;
 import org.apache.tika.sax.BodyContentHandler;
-import org.backmeup.index.Indexer;
 import org.xml.sax.ContentHandler;
 
 import play.jobs.Job;
@@ -43,7 +42,7 @@ import play.jobs.Job;
 /**
  * Illustrates how to implement a indexer as hadoop map reduce job.
  */
-public class IndexerJob extends Job {
+public class HadoopIndexerJob extends Job {
 
 	private String sequenceFilePath;
 	private String indexFileDestination;
@@ -51,7 +50,7 @@ public class IndexerJob extends Job {
 	private int numberOfShards;
 	public static final String INDEX_JARPATH_KEY_NAME = "index.jar.path";
 
-	public IndexerJob(String path, String finalDestination, int numOfShards) {
+	public HadoopIndexerJob(String path, String finalDestination, int numOfShards) {
 		Properties properties = new Properties();
 		InputStream is = getClass().getClassLoader().getResourceAsStream(
 				"hdfs.properties");
@@ -76,7 +75,7 @@ public class IndexerJob extends Job {
 		// create job conf with class pointing into job jar.
 		JobConf jobConf = new JobConf();
 		jobConf.setJobName("indexer");
-		jobConf.setMapRunnerClass(org.backmeup.index.Indexer.class);
+		jobConf.setMapRunnerClass(org.backmeup.index.HadoopIndexer.class);
 		jobConf.setJar(indexJarPath);
 		// alternative use a text file and a TextInputFormat
 		jobConf.setInputFormat(SequenceFileInputFormat.class);
