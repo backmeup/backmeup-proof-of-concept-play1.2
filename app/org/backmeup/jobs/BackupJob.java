@@ -66,14 +66,6 @@ public class BackupJob extends Job {
 			storageWriter.close();
 			Logger.info("Job " + jobID + ": download from source complete");
 			
-			/* For testing only: run indexer
-			StorageReader storageReader = StorageReader.configuredRuntimeInstance();
-			storageReader.open(storagePath);
-			StorageIndexer indexer = new StorageIndexer(storageReader);
-			indexer.run();
-			storageReader.close();
-			*/
-	
 			// TODO pipe data through processing actions, if any
 			
 			// 2. Move the data from storage backend to sink
