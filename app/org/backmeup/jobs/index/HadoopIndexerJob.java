@@ -37,6 +37,7 @@ import org.apache.tika.parser.Parser;
 import org.apache.tika.sax.BodyContentHandler;
 import org.xml.sax.ContentHandler;
 
+import play.Play;
 import play.jobs.Job;
 
 /**
@@ -87,6 +88,7 @@ public class HadoopIndexerJob extends Job {
 		// setting the folder where lucene indexes will be copied when finished.
 		jobConf.set("finalDestination", indexFileDestination);
 		jobConf.set("fs.default.name", "hdfs://localhost:9000");
+		jobConf.set("backmeup.index.directory", Play.configuration.getProperty("backmeup.index.directory"));
 
 		// important to switch spec exec off.
 		// We dont want to have something duplicated.

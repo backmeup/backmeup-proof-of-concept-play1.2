@@ -54,7 +54,8 @@ public class StorageIndexer extends BaseIndexer {
 	
 	public void run() throws IOException, StorageException, SAXException, TikaException {
 		Logger.info("Starting indexing");
-		IndexWriter indexWriter = createIndexWriter();
+
+		IndexWriter indexWriter = createIndexWriter(Play.configuration.getProperty("backmeup.index.directory"));
 		
 		Iterator<DataObject> it = storage.getDataObjects();
 		while (it.hasNext()) {

@@ -40,8 +40,6 @@ import org.apache.tika.metadata.Metadata;
 import org.apache.tika.parser.ParseContext;
 import org.apache.tika.parser.Parser;
 import org.apache.tika.sax.BodyContentHandler;
-import org.backmeup.storage.StorageException;
-import org.backmeup.storage.StorageReader;
 import org.xml.sax.ContentHandler;
 
 import play.Logger;
@@ -53,8 +51,10 @@ import play.Logger;
  */
 public class HadoopIndexer extends BaseIndexer implements MapRunnable<Text, BytesWritable, Text, Text> {
 
+	private JobConf conf;
+	
 	public void configure(JobConf conf) {
-		// Not used
+		this.conf = conf;
 	}
 	
 	public void run(RecordReader<Text, BytesWritable> reader, OutputCollector<Text, Text> output,
@@ -63,7 +63,7 @@ public class HadoopIndexer extends BaseIndexer implements MapRunnable<Text, Byte
 		Text key = reader.createKey();
 		BytesWritable value = reader.createValue();
 		
-		IndexWriter indexWriter = createIndexWriter();
+		IndexWriter indexWriter = createIndexWriter(conf.get("backmeup.index.directory"));
 		
 		report.setStatus("Adding documents...");
 		

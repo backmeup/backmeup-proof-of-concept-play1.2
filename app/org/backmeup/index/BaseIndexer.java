@@ -20,19 +20,14 @@ import org.apache.tika.metadata.Metadata;
 import org.apache.tika.parser.ParseContext;
 import org.apache.tika.parser.Parser;
 import org.apache.tika.sax.BodyContentHandler;
-import org.backmeup.storage.StorageException;
 import org.xml.sax.ContentHandler;
 import org.xml.sax.SAXException;
-
-import play.Logger;
-import play.Play;
 
 public abstract class BaseIndexer {
 	
 	private Tika tika = new Tika();
 	
-	protected IndexWriter createIndexWriter() throws IOException {
-		String indexDirectory = Play.configuration.getProperty("backmeup.index.directory");
+	protected IndexWriter createIndexWriter(String indexDirectory) throws IOException {
 		String shardName = System.currentTimeMillis() + "-" + new Random().nextInt();
 		File file = new File(indexDirectory, shardName);		
 		Directory dir = FSDirectory.open(file);
@@ -45,7 +40,7 @@ public abstract class BaseIndexer {
 	protected void index(IndexWriter writer, String filename, ByteArrayInputStream is)
 		throws IOException, SAXException, TikaException {
 		
-		Logger.info("Indexing: " + filename);
+		System.out.println("Indexing: " + filename);
 		
 		String mimeType = (is.markSupported()) ? tika.detect(is) : null;
 
