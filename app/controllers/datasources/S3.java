@@ -50,7 +50,7 @@ public class S3 extends Controller {
 			
 			// Store auth session info in DB
 			DatasourceProfile profile = 
-				user.addDatasourceProfile("s3", "org.backmeup.datasources.filesystem.s3.S3Datasource");
+				user.addDatasourceProfile("s3", "org.backmeup.connectors.impl.s3.S3Datasource");
 			profile.setProperty(S3Datasource.AWS_ACCESS_KEY_PROPERTY_NAME, awsAccessKey);
 			profile.setProperty(S3Datasource.AWS_SECRET_KEY_PROPERTY_NAME, awsSecretKey);
 			profile.setProperty(S3Datasource.AWS_BUCKET_PROPERTY_NAME, awsTopBucket);

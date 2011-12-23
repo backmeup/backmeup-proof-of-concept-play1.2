@@ -221,8 +221,11 @@ module.crud=${play.path}/modules/crud
 # Import the secure module
 module.secure=${play.path}/modules/secure
 
-# Custom BackMeUp properties
+# BackMeUp Storage config
 backmeup.storage.reader.impl=org.backmeup.storage.filesystem.LocalFilesystemStorage
 backmeup.storage.root.path=${play.path}/backmeup-temp
 # backmeup.storage.reader.impl=org.backmeup.storage.hdfs.HdfsStorage
 # backmeup.storage.root.path=guest/test.seq
+
+# BackMeUp Index config
+backmeup.index.directory=/home/backmeup/indexes

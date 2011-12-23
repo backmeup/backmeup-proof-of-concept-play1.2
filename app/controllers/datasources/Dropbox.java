@@ -43,7 +43,7 @@ public class Dropbox extends Controller {
 			
 			// Store auth session info in DB
 			DatasourceProfile p = 
-				user.addDatasourceProfile("", "org.backmeup.datasources.filesystem.dropbox.DropboxDatasource");
+				user.addDatasourceProfile("", "org.backmeup.connectors.impl.dropbox.DropboxDatasource");
 			p.setProperty(DropboxDatasource.PROPERTY_TOKEN, rtp.key);
 			p.setProperty(DropboxDatasource.PROPERTY_SECRET, rtp.secret);
 			
