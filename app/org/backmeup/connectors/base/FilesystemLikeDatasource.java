@@ -15,8 +15,6 @@ import models.DatasourceProfile;
 import models.User;
 
 import org.backmeup.connectors.Datasource;
-import org.backmeup.jobs.HdfsFilesystemSourceJob;
-import org.backmeup.jobs.HdfsSequenceFileJob;
 import org.backmeup.jobs.BackupJobStatus;
 import org.backmeup.storage.DataObject;
 import org.backmeup.storage.StorageException;
