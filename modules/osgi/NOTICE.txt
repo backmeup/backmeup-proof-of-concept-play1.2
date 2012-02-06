@@ -1,0 +1,3 @@
+The play-osgi module has been downloaded from:
+https://github.com/mathieuancelin/play-osgi
+

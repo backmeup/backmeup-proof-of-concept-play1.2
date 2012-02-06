@@ -18,10 +18,18 @@ import models.User;
 import models.UserDownload;
 import play.mvc.Controller;
 import play.mvc.With;
+import org.osgi.play.OSGi;
+import javax.inject.Inject;
+import org.backmeup.file.api.IFileService;
+import org.backmeup.file.data.Download;
+import org.osgi.play.injection.OSGiService;
+import java.util.ArrayList;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 
 @With(Secure.class)
 public class DatasourceProfiles extends Controller {
-	
+        @Inject @OSGiService private static Iterable<IFileService> services;
 	public static void list() {
 		User user = Security.connectedUser();
 		List<DatasourceProfile> profiles = user.listDatasourceProfiles();
@@ -30,7 +38,12 @@ public class DatasourceProfiles extends Controller {
 	
 	public static void createNew() {
 		User user = Security.connectedUser();
-		render(user);
+                List<String> listServices = new ArrayList<String>();
+                for (IFileService ifs : services) {
+                  listServices.add(ifs.getTitle());
+                  ifs.download(new org.backmeup.file.data.User("what","ever"), "path");
+                }
+		render(user, listServices);
 	}
 	
 	public static void show(Long id) throws ClassNotFoundException, IllegalArgumentException,

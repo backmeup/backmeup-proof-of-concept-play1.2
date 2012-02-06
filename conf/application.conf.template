@@ -229,3 +229,8 @@ backmeup.storage.root.path=${play.path}/backmeup-temp
 
 # BackMeUp Index config
 backmeup.index.directory=/home/backmeup/indexes
+
+# OSGi Plugin configuration
+osgi.systemPackages=models,play,org.backmeup.file.data,org.backmeup.file.api,org.apache.log4j
+#osgi.autodeployDirectory=autodeploy
+#osgi.tempDirectory=osgiTmp

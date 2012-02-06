@@ -39,6 +39,9 @@ GET     /downloads/{id}/unpack                  UserDownloads.unpack
 GET     /downloads/{id}/remove                  UserDownloads.delete
 GET     /downloads/{id}/download/status         UserDownloads.queryDownloadStatus
 
+# Play OSGi
+GET     /                                       module:osgi
+
 # Ignore favicon requests
 GET     /favicon.ico                            404
 

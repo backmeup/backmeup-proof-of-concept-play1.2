@@ -19,4 +19,9 @@
       <div><img src="http://code.google.com/images/code_logo.gif" /></div>
     </div>
   </a>
+
+  #{list listServices, as:'service'}  
+  <a href="/datasources/new/dropbox" title"${service}">${service}</a>
+  #{/list}
+ 
 </table>
